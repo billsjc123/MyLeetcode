@@ -1,10 +1,7 @@
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
-
 import org.junit.Test;
 
-import jdk.nashorn.api.tree.Tree;
 
 public class Leetcode_998 {
     public TreeNode insertIntoMaxTree(TreeNode root,int val) {
