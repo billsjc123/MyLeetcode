@@ -1,12 +1,10 @@
-import java.util.Stack;
-
 import org.junit.Test;
-
 
 public class Leetcode_114 {
     TreeNode pre = null;
+
     public void flatten(TreeNode root) {
-        if(root == null)
+        if (root == null)
             return;
         flatten(root.right);
         flatten(root.left);
@@ -14,9 +12,9 @@ public class Leetcode_114 {
         root.left = null;
         pre = root;
     }
+
     @Test
-    public void test()
-    {
+    public void test() {
         TreeNode root = new TreeNode(1);
         root.left = new TreeNode(2);
         root.right = new TreeNode(3);

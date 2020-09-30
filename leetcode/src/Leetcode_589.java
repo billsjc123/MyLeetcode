@@ -3,23 +3,24 @@ import java.util.List;
 import java.util.Stack;
 
 
-class Node {
-    public int val;
-    public List<Node> children;
+// class Node {
+//     public int val;
+//     public List<Node> children;
 
-    public Node() {}
+//     public Node() {}
 
-    public Node(final int _val) {
-        val = _val;
-    }
+//     public Node(final int _val) {
+//         val = _val;
+//     }
 
-    public Node(final int _val, final List<Node> _children) {
-        val = _val;
-        children = _children;
-    }
-}
+//     public Node(final int _val, final List<Node> _children) {
+//         val = _val;
+//         children = _children;
+//     }
+// }
 
 class Solution {
+    
     public List<Integer> preorder(Node root) {
         List<Integer> result = new ArrayList<Integer>();
         if(root == null)

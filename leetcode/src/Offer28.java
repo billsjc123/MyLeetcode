@@ -1,4 +1,4 @@
-public class Offer_28 {
+public class Offer28 {
     public boolean isSymmetric(TreeNode root) {
         return helper(root, root);
     }
