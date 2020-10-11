@@ -1,37 +1,56 @@
-import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Queue;
+import java.util.Stack;
 
 public class Offer32 {
     public List<List<Integer>> levelOrder(TreeNode root) {
-        Queue<TreeNode> q = new LinkedList<TreeNode>();
-        List<List<Integer>> result = new ArrayList<List<Integer>>();
+        List<List<Integer>> result = new LinkedList<List<Integer>>();
         if (root == null)
             return result;
+        Queue<TreeNode> q = new LinkedList<TreeNode>();
+        boolean fromfront = false;
         q.offer(root);
-        List<Integer> line = new ArrayList<Integer>();
-        int thisline = 1, nextline = 0;
-        while (!q.isEmpty()) {
-            TreeNode front = q.poll();
-
-            line.add(front.val);
-            if (front.left != null) {
-                q.offer(front.left);
-                nextline++;
+        while(!q.isEmpty()){
+            LinkedList<Integer> tmp = new LinkedList<Integer>();
+            int size = q.size();
+            for (int i = 0; i < size; i++) {
+                TreeNode node = q.poll();
+                if(fromfront)tmp.addFirst(node.val);
+                else tmp.addLast(node.val);
+                if(node.left!=null)q.offer(node.left);
+                if(node.right!=null)q.offer(node.right);
             }
-            if (front.right != null) {
-                q.offer(front.right);
-                nextline++;
-            }
-            thisline--;
-            if (thisline == 0) {
-                thisline = nextline;
-                nextline = 0;
-                result.add(line);
-                line = new ArrayList<Integer>();
-            }
+            result.add(tmp);
+            fromfront = !fromfront;
         }
         return result;
+        // Stack<TreeNode> s = new Stack<TreeNode>();
+        // s.push(root);
+        // boolean from_right = false;
+        // while (!s.isEmpty()) {
+        //     List<Integer> l = new LinkedList<Integer>();
+        //     int size = s.size();
+        //     Stack<TreeNode> news = new Stack<TreeNode>();
+        //     for (int i = 0; i < size; i++) {
+        //         TreeNode node = s.pop();
+        //         l.add(node.val);
+        //         if (from_right) {
+        //             if (node.right != null)
+        //                 news.push(node.right);
+        //             if (node.left != null)
+        //                 news.push(node.left);
+        //         } else {
+        //             if (node.left != null)
+        //                 news.push(node.left);
+        //             if (node.right != null)
+        //                 news.push(node.right);
+        //         }
+        //     }
+        //     s = news;
+        //     from_right = !from_right;
+        //     result.add(l);
+        // }
+        // return result;
     }
 }
