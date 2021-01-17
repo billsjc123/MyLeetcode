@@ -1,4 +1,3 @@
-import java.util.Stack;
 
 public class Leetcode_669 {
     public TreeNode trimBST(TreeNode root, int low, int high) {

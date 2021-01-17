@@ -15,5 +15,6 @@ public class Leetcode_1535 {
             }
             i++;
         }
+        return curWinner;
     }
 }

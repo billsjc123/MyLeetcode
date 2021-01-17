@@ -1,5 +1,3 @@
-import java.util.List;
-
 public class Leetcode_141 {
     public boolean hasCycle(ListNode head) {
         if (head == null)
