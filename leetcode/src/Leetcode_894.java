@@ -4,7 +4,7 @@ import java.util.List;
 import java.util.Map;
 
 public class Leetcode_894 {
-    Map<Integer,List<TreeNode>> memo = new HashMap();
+    Map<Integer,List<TreeNode>> memo = new HashMap<Integer,List<TreeNode>>();
     public List<TreeNode> allPossibleFBT(int N) {
         if(!memo.containsKey(N)){
             List<TreeNode> ans = new ArrayList<TreeNode>();

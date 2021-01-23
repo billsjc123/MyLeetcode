@@ -1,7 +1,6 @@
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.management.openmbean.ArrayType;
 
 public class Leetcode_1339 {
     class helper{

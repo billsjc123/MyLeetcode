@@ -1,5 +1,3 @@
-import java.util.Arrays;
-
 import org.junit.Test;
 
 public class Leetcode_945 {

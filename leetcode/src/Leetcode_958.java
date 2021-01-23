@@ -1,6 +1,5 @@
 import java.util.LinkedList;
 import java.util.Queue;
-import java.util.Stack;
 
 public class Leetcode_958 {
     public boolean isCompleteTree(TreeNode root) {

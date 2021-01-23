@@ -1,7 +1,6 @@
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Queue;
-import java.util.Stack;
 
 public class Offer32 {
     public List<List<Integer>> levelOrder(TreeNode root) {
