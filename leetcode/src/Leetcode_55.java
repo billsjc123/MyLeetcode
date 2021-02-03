@@ -1,4 +1,3 @@
-import org.junit.Test;
 
 public class Leetcode_55 {
     public boolean canJump(int[] nums) {
@@ -11,7 +10,7 @@ public class Leetcode_55 {
         int rightmost = 0;
         for (int i = 0; i <= rightmost; i++) {
             rightmost = Math.max(rightmost, i + nums[i]);
-            if (rightmost >= len - 1)
+            if(rightmost>=len-1)
                 return true;
         }
         return false;
