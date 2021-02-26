@@ -1,3 +1,5 @@
+import org.junit.Test;
+
 public class Interview_04_02 {
     int result;
     int target;
@@ -50,7 +52,7 @@ public class Interview_04_02 {
         }
         fromUptoButtom(root.left, cur_sum + root.val);
         fromUptoButtom(root.right, cur_sum + root.val);
+    
     }
-
 
 }

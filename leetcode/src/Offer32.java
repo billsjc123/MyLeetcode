@@ -2,6 +2,8 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Queue;
 
+import org.junit.Test;
+
 public class Offer32 {
     public List<List<Integer>> levelOrder(TreeNode root) {
         List<List<Integer>> result = new LinkedList<List<Integer>>();
@@ -51,5 +53,17 @@ public class Offer32 {
         //     result.add(l);
         // }
         // return result;
+    }
+
+    @Test
+    public void test(){
+        List<Integer> tmp = new LinkedList<Integer>();
+        tmp.add(3);
+        tmp.add(4);
+        tmp.remove((Object)3);
+        for (Integer integer : tmp) {
+            System.out.println(integer);
+            
+        }
     }
 }
