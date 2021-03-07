@@ -1,4 +1,4 @@
-import org.junit.Test;
+import java.util.ArrayList;
 
 public class Interview_04_02 {
     int result;
