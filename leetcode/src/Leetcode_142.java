@@ -1,4 +1,18 @@
 public class Leetcode_142 {
+
+    // HashSet解法
+
+    // public ListNode detectCycle(ListNode head) {
+    //     HashSet<ListNode> set = new HashSet<ListNode>();
+    //     while(head!=null){
+    //         if(set.contains(head))return head;
+    //         set.add(head);
+    //         head=head.next;
+    //     }
+    //     return null;
+    // }
+
+    // 快慢指针解法
     public ListNode detectCycle(ListNode head) {
         if (head == null || head.next == null)
             return null;
