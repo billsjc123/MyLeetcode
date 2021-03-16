@@ -1,55 +1,36 @@
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
-import java.util.Stack;
 
 public class Leetcode_103 {
     public List<List<Integer>> zigzagLevelOrder(TreeNode root) {
-        // one simple method is use LevelOrder and reverse every List of even layer.
-        // this method use BFS and reverse the direction of push the node into stack every layer.
-        List<List<Integer>> result = new ArrayList<List<Integer>>();
-        if(root == null)
-            return result;
-        // 1 represent from left to right
-        int order = 1;
-        Stack<TreeNode> stack = new Stack<TreeNode>();
-        stack.push(root);
-        while(!stack.isEmpty())
-        {
-            int size = stack.size();
-            List<Integer> thislayer = new ArrayList<Integer>();
-            // remember to create a new stack for next level
-            Stack<TreeNode> nextLayerStack = new Stack<TreeNode>();
-
-            // push nodes of next level into stack from left to right
-            if(order==1)
-            {
-                for(int i = 0;i<size;i++)
-                {
-                    TreeNode node = stack.pop();
-                    thislayer.add(node.val);
-                    if(node.left!=null)
-                        nextLayerStack.push(node.left);
-                    if(node.right!=null)
-                        nextLayerStack.push(node.right);
+        ArrayList<List<Integer>> ans = new ArrayList<List<Integer>>();
+        if(root==null)return ans;
+        
+        LinkedList<TreeNode> deque = new LinkedList<TreeNode>();
+        deque.addLast(root);
+        boolean oddLayer = true;
+        while(!deque.isEmpty()){
+            int size = deque.size();
+            ArrayList<Integer> layer = new ArrayList<Integer>();
+            if(oddLayer){
+                for(int i=0;i<size;i++){
+                    TreeNode temp = deque.removeFirst();
+                    layer.add(temp.val);
+                    if(temp.left!=null)deque.addLast(temp.left);
+                    if(temp.right!=null)deque.addLast(temp.right);
                 }
-                result.add(thislayer);
-            }
-            // push nodes of next level into stack from right to left
-            else{
-                for(int i = 0;i<size;i++)
-                {
-                    TreeNode node = stack.pop();
-                    thislayer.add(node.val);
-                    if(node.right!=null)
-                        nextLayerStack.push(node.right);
-                    if(node.left!=null)
-                        nextLayerStack.push(node.left);
+            }else{
+                for(int i=0;i<size;i++){
+                    TreeNode temp = deque.removeLast();
+                    layer.add(temp.val);
+                    if(temp.right!=null)deque.addFirst(temp.right);
+                    if(temp.left!=null)deque.addFirst(temp.left);
                 }
-                result.add(thislayer);
             }
-            stack = nextLayerStack;
-            order = 1-order;
+            ans.add(layer);
+            oddLayer=!oddLayer;
         }
-        return result;
+        return ans;
     }
 }
