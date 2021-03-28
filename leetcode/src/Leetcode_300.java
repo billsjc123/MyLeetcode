@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+
 public class Leetcode_300 {
     // dp O(n^2)
     // public int lengthOfLIS(int[] nums) {
@@ -21,4 +23,32 @@ public class Leetcode_300 {
     // public int lengthOfLIS(int[] nums) {
         
     // }
+    public int lengthOfLIS(int[] arr) {
+        ArrayList<Integer> upperList = new ArrayList<Integer>();
+        for(int num:arr){
+            if(num>upperList.get(upperList.size()-1)){
+                upperList.add(num);
+            }else{
+                // 找到第一个>=num的进行替换
+                int swapIdx = binarySearch(upperList,num);
+                upperList.set(swapIdx, num);
+            }
+        }
+        return upperList.size();
+    }
+
+    public int binarySearch(ArrayList<Integer> arr,int target){
+        int l = 0, r = arr.size()-1;
+        while(l<r){
+            int m = l+(r-l)/2;
+            if(arr.get(m)<target){
+                l=m+1;
+            }else if(arr.get(m)==target){
+                return m;
+            }else{
+                r=m;
+            }
+        }
+        return r;
+    }
 }

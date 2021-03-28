@@ -6,6 +6,55 @@
     "configurations": [
         {
             "type": "java",
+            "name": "Launch jd2",
+            "request": "launch",
+            "mainClass": "jd2",
+            "projectName": "leetcode_d0f38b8d"
+        },
+        {
+            "type": "java",
+            "name": "Launch jd1",
+            "request": "launch",
+            "mainClass": "jd1",
+            "projectName": "leetcode_d0f38b8d"
+        },
+        {
+            "type": "java",
+            "name": "Launch meituan4",
+            "request": "launch",
+            "mainClass": "meituan4",
+            "projectName": "leetcode_d0f38b8d"
+        },
+        {
+            "type": "java",
+            "name": "Launch meituan5",
+            "request": "launch",
+            "mainClass": "meituan5",
+            "projectName": "leetcode_d0f38b8d"
+        },
+        {
+            "type": "java",
+            "name": "Launch meituan1",
+            "request": "launch",
+            "mainClass": "meituan1",
+            "projectName": "leetcode_d0f38b8d"
+        },
+        {
+            "type": "java",
+            "name": "Launch meituan2",
+            "request": "launch",
+            "mainClass": "meituan2",
+            "projectName": "leetcode_d0f38b8d"
+        },
+        {
+            "type": "java",
+            "name": "Launch test1",
+            "request": "launch",
+            "mainClass": "test1",
+            "projectName": "leetcode_d0f38b8d"
+        },
+        {
+            "type": "java",
             "name": "Launch Leetcode_125",
             "request": "launch",
             "mainClass": "Leetcode_125",
