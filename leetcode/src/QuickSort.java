@@ -5,7 +5,7 @@ public class QuickSort {
     public void QuickSort(int[] arr, int l, int r, int count) {
         if (l >= r)
             return;
-        System.out.println("第"+(count-1)+"次快速排序:");
+        System.out.println("第"+count+"次快速排序:");
         for(int num:arr){
             System.out.print(num+" ");
         }
