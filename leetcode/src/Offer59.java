@@ -3,27 +3,33 @@ import java.util.LinkedList;
 
 public class Offer59 {
     public int[] maxSlidingWindow(int[] nums, int k) {
+        if(nums.length==0)return new int[]{};
+        int r = 0;
         int[] ans = new int[nums.length-k+1];
-        Deque<Integer> queue = new LinkedList<Integer>();
-        for(int i=0;i<k;i++){
-            while(!queue.isEmpty()&&queue.getLast()<nums[i]){
-                queue.removeLast();
+        int idx = 0;
+        Deque<Integer> deque = new LinkedList<Integer>(); 
+        // 确定第一个窗口
+        while(r<k){
+            while(r>0 && !deque.isEmpty() && nums[r]>deque.getLast()){
+                deque.removeLast();
             }
-            queue.offerLast(nums[i]);
-            ans[i]=queue.getFirst();
+            deque.addLast(nums[r]);
+            r++;
         }
+        ans[idx++]=deque.peek();
+        while(r<nums.length){
+            // 移出滑动窗口的元素等于队首元素
+            if(deque.peek()==nums[r-k]){
+                deque.poll();
+            }
 
-        for(int i=k;i<nums.length;i++){
-            if(queue.getFirst()==nums[i-k]){
-                queue.removeFirst();
+            while(!deque.isEmpty() && nums[r]>deque.getLast()){
+                deque.removeLast();
             }
-            while(!queue.isEmpty()&&queue.getLast()<nums[i]){
-                queue.removeLast();
-            }
-            queue.offerLast(nums[i]);
-            ans[i]=queue.getFirst();
+            deque.addLast(nums[r]);
+            r++;
+            ans[idx++]=deque.peek();
         }
-
         return ans;
     }
 }
